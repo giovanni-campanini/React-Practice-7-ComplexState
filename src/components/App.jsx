@@ -9,21 +9,12 @@ function App() {
 
   const handleContact = (event) => {
     const { name, value } = event.target;
-    if (name === "fName") {
-      setContact((prevValue) => {
-        return { fName: value, lName: prevValue.lName, email: prevValue.email };
-      });
-    }
-    if (name === "lName") {
-      setContact((prevValue) => {
-        return { fName: prevValue.fName, lName: value, email: prevValue.email };
-      });
-    }
-    if (name === "email") {
-      setContact((prevValue) => {
-        return { fName: prevValue.fName, lName: prevValue.lName, email: value };
-      });
-    }
+    setContact((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value
+      };
+    });
   };
 
   return (
